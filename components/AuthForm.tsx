@@ -1,6 +1,6 @@
 "use client"
 
-import { z } from "zod"
+import { set, z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { createAccount } from "@/lib/actions/users.action"
 
 // Define the type for the form type
 
@@ -33,6 +34,7 @@ const AuthForm = ({type} : {type: FormType}) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [accountId, setAccountId] = useState(null);
 
 
     const formSchema = authFormSchema(type);
@@ -47,8 +49,24 @@ const AuthForm = ({type} : {type: FormType}) => {
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) =>{
     // Do something with the form values.
-    console.log(values)
-  }
+    setIsLoading(true);
+    setErrorMessage("");
+
+    try{
+
+      const user = await createAccount({
+        fullName: values.fullName || "",
+        email: values.email,
+      });
+
+      setAccountId(user.accountId);
+    } catch {
+      setErrorMessage("action failed")
+    } finally {
+      setIsLoading(false);
+    }
+ 
+  };
   
   return (
     <>
