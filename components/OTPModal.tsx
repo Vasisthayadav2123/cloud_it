@@ -1,13 +1,17 @@
+'use client';
+
+
+
 import {
   AlertDialog,
-  AlertDialogAction,
+
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
+
 } from "@/components/ui/alert-dialog";
 
 //  all the imports for the modal and otp input components
@@ -16,20 +20,22 @@ import { Button } from "@/components/ui/button";
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSeparator,
+
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
 import { useState } from "react";
 import Image from "next/image";
+import { verifySecret , sendEmailOTP } from "@/lib/actions/users.action";
+import { useRouter } from "next/navigation";
 
 
-
-const OtpModal = ({accounId , email  } :{accountId: string , email : string} ) => {
+const OtpModal = ({accountId , email  } :{accountId: string , email : string} ) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
       //  handleing submit
 
@@ -42,7 +48,9 @@ const OtpModal = ({accounId , email  } :{accountId: string , email : string} ) =
 
         try{
         // Simulate an API call
-        
+        const sessionId = await verifySecret({accountId, password});
+        if (sessionId)router.push('/');
+
 
         }catch (error) {
             console.error("Error submitting OTP:", error);
@@ -53,9 +61,10 @@ const OtpModal = ({accounId , email  } :{accountId: string , email : string} ) =
     };
 
 
-    const handleResendOtp = async => {
+    const handleResendOtp = async() => {
         // recall API to resend OTP
-
+        await sendEmailOTP({email});
+        
     }
 
     return <AlertDialog open ={isOpen} onOpenChange={setIsOpen}>
