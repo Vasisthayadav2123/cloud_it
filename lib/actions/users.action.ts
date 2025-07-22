@@ -62,3 +62,4 @@ export const createAccount = async ({fullName , email} :{fullName : string , ema
     }
     return parseStringify({accountId});
 }
+

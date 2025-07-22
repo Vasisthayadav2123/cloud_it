@@ -18,6 +18,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { createAccount } from "@/lib/actions/users.action"
+import OtpModal from "./OTPModal"
 
 // Define the type for the form type
 
@@ -65,7 +66,7 @@ const AuthForm = ({type} : {type: FormType}) => {
     } finally {
       setIsLoading(false);
     }
- 
+    // Handle the response as needed
   };
   
   return (
@@ -130,7 +131,7 @@ const AuthForm = ({type} : {type: FormType}) => {
 
       </form>
     </Form>
-    otp verification
+    {true && <OtpModal email={form.getValues("email")} accountId={accountId}  />}
     </>
   )
 };
