@@ -1,7 +1,5 @@
 'use server';
 
-
-// Make sure to import or define the Client class before using it
 import {Account , Client , Databases , Storage , Avatars} from 'node-appwrite';
 
 import { appwriteConfig } from './config';
