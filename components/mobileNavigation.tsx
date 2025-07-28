@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import FileUploader from "./fileUploader";
+import FileUploader from "./FileUploader";
 import { signOut } from "@/lib/actions/users.action";
 
 
@@ -83,7 +83,7 @@ const MobileNavigation = ({fullname , email ,avatar} : Props) => {
       </nav>
       <Separator className="my-5 bg-light-200/20"/>
       <div className="flex flex-col justify-between gap-5">
-        <FileUploader />
+        <FileUploader ownerId={""} accountId={""} />
 
         <button type='submit' className='mobile-sign-out-button' onClick = { async () => await signOut } > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
       </div>

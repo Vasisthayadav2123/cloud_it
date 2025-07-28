@@ -5,12 +5,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { avatarPlaceholderUrl, navItems } from '@/constants';
+import { navItems } from '@/constants';
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { Props } from 'next/script';
 
 
+// eslint-disable-next-line no-redeclare
 interface Props {
   fullName: string;
   avatar: string;

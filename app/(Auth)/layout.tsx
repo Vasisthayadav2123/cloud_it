@@ -3,6 +3,7 @@ import React from 'react';
 
 const Layout = ({children} : {children: React.ReactNode}) => {
     return (
+        <html lang="en">
         <div className='flex min-h-screen'>
             <section className='hidden w-1/2 items-center justify-center bg-brand-100 p-10 lg:flex xl:w-2/5'>
                 <div className='flex max-h-[800px] max-w-[430px] flex-col justify-center space-y-12'>
@@ -24,6 +25,7 @@ const Layout = ({children} : {children: React.ReactNode}) => {
                 {children}
             </section>
         </div>
+        </html>
     );
 };
 

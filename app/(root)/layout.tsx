@@ -1,6 +1,6 @@
 import React from 'react';
-import SideBar from '@/components/sideBar';
-import MobileNavigation from '@/components/mobileNavigation';
+import SideBar from '@/components/SideBar';
+import MobileNavigation from '@/components/MobileNavigation';
 import Header from '@/components/header';
 import { getCurrentUser } from '@/lib/actions/users.action';
 import { redirect } from 'next/navigation';
@@ -15,7 +15,7 @@ const layout = async ({children} : {children : React.ReactNode }) => {
 
 
 
-    return <html>
+    return <html lang='en'>
         <body>
     <main className='flex h-screen '>
         <SideBar {...currentUser}/>
