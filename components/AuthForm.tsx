@@ -1,6 +1,6 @@
 "use client"
 
-import { set, z } from "zod"
+import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -17,13 +17,13 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { createAccount } from "@/lib/actions/users.action"
+import { createAccount , signInUser } from "@/lib/actions/users.action"
 import OtpModal from "./OTPModal"
+
 
 // Define the type for the form type
 
 type FormType = "sign-in" | "sign-up";
-
 const authFormSchema = (formType : FormType) => {
     return z.object({
         email: z.string().email(),
@@ -55,10 +55,11 @@ const AuthForm = ({type} : {type: FormType}) => {
 
     try{
 
-      const user = await createAccount({
+      const user = type === 'sign-up' ? await createAccount({
         fullName: values.fullName || "",
-        email: values.email,
-      });
+        email: values.email, 
+      }) : await signInUser({
+        email: values.email,})
 
       setAccountId(user.accountId);
     } catch {

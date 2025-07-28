@@ -3,8 +3,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
@@ -19,9 +17,11 @@ import { useState } from 'react';
 import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import fileUploader from "./fileUploader";
+import FileUploader from "./fileUploader";
+import { signOut } from "@/lib/actions/users.action";
 
 
+// eslint-disable-next-line no-redeclare
 interface Props {
   ownerId: string;
     accountId: string;
@@ -30,7 +30,7 @@ interface Props {
     avatar: string;
 }
 
-const MobileNavigation = ({ownerId , accountId , fullname , email ,avatar} : Props) => {
+const MobileNavigation = ({fullname , email ,avatar} : Props) => {
 
     const [open , setOpen] = useState(false);
     const pathName = usePathname();
@@ -83,9 +83,9 @@ const MobileNavigation = ({ownerId , accountId , fullname , email ,avatar} : Pro
       </nav>
       <Separator className="my-5 bg-light-200/20"/>
       <div className="flex flex-col justify-between gap-5">
-        <fileUploader />
+        <FileUploader />
 
-        <button type='submit' className='mobile-sign-out-button' onClick = {() => {}} > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
+        <button type='submit' className='mobile-sign-out-button' onClick = { async () => await signOut } > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
       </div>
   </SheetContent>
 </Sheet>

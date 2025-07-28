@@ -6,6 +6,7 @@ import { appwriteConfig } from "../appwrite/config";
 import { parseStringify } from "../utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
+import { redirect } from "next/navigation";
 
 
  
@@ -103,3 +104,37 @@ export const getCurrentUser = async () => {
         ...user.documents[0],
     });
 }
+
+export async function signOut() {
+     "use server";
+
+     const { account } = await createSessionClient();
+
+     (await cookies()).delete("my-custom-session");
+     await account.deleteSession("current");
+
+     redirect("/sign-up");
+   }
+
+   export default async function HomePage() {
+     const user = await getCurrentUser();
+     if (!user) redirect("/sign-up");
+   }
+
+// Removed unused getLoggedInUser function
+
+export const signInUser = async ({ email }: { email: string }) => {
+  try {
+    const existingUser = await getUserByEmail(email);
+
+    // User exists, send OTP
+    if (existingUser) {
+      await sendEmailOTP({ email });
+      return parseStringify({ accountId: existingUser.accountId });
+    }
+
+    return parseStringify({ accountId: null, error: "User not found" });
+  } catch (error) {
+    handleError(error, "Failed to sign in user");
+  }
+};
