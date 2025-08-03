@@ -12,9 +12,9 @@ import { redirect } from "next/navigation";
  
 
 const  getUserByEmail  =async(email:string) => {
-    const {database} = await createAdminClient ();
+    const {databases} = await createAdminClient ();
 
-    const result = await database.listDocuments(
+    const result = await databases.listDocuments(
         appwriteConfig.databaseId,
         appwriteConfig.usersCollectionId,
         [Query.equal('email', email)]
@@ -49,9 +49,9 @@ export const createAccount = async ({fullName , email} :{fullName : string , ema
     if (!accountId) throw new Error('failed to send email OTP');
 
     if(!existingUser){
-        const {database} = await createAdminClient();
+        const {databases} = await createAdminClient();
 
-        await database.createDocument(
+        await databases.createDocument(
             appwriteConfig.databaseId,
             appwriteConfig.usersCollectionId,
             ID.unique(),

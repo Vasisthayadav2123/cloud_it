@@ -7,12 +7,12 @@ import { signOut } from '@/lib/actions/users.action';
 
 
 
-const Header = () => {
+const Header = ({userId , accountId}: {userId: string , accountId:string}) => {
     return <header className='header'>
         <Search />
 
         <div className='header-wrapper'>
-            <FileUpLoader ownerId={''} accountId={''} />
+            <FileUpLoader ownerId={userId} accountId={accountId} />
 
             <form action={async () => {
                 'use server';

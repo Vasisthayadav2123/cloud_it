@@ -17,20 +17,20 @@ import { useState } from 'react';
 import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import FileUploader from "./FileUploader";
+import FileUploader from "@/components/FileUploader";
 import { signOut } from "@/lib/actions/users.action";
 
 
 // eslint-disable-next-line no-redeclare
 interface Props {
-  ownerId: string;
+    $id: string;
     accountId: string;
     fullname: string;
     email: string;
     avatar: string;
 }
 
-const MobileNavigation = ({fullname , email ,avatar} : Props) => {
+const MobileNavigation = ({ $id: ownerId , accountId ,fullname , email ,avatar} : Props) => {
 
     const [open , setOpen] = useState(false);
     const pathName = usePathname();
@@ -83,7 +83,7 @@ const MobileNavigation = ({fullname , email ,avatar} : Props) => {
       </nav>
       <Separator className="my-5 bg-light-200/20"/>
       <div className="flex flex-col justify-between gap-5">
-        <FileUploader ownerId={""} accountId={""} />
+        <FileUploader ownerId={ownerId} accountId={accountId} />
 
         <button type='submit' className='mobile-sign-out-button' onClick = { async () => await signOut } > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
       </div>
