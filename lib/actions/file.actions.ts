@@ -20,6 +20,10 @@ export const uploadFile = async ({
   accountId,
   path,
 }: UploadFileProps) => {
+    if (!accountId) {
+  throw new Error("Missing required attribute 'accountId'");
+}
+
   const { storage, database } = await createAdminClient();
 
   try {

@@ -102,6 +102,7 @@ export const getCurrentUser = async () => {
 
     return parseStringify({
         ...user.documents[0],
+        $accountId: result.$id,
     });
 }
 
