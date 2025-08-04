@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBar from '@/components/SideBar';
-import MobileNavigation from '@/components/MobileNavigation';
+import MobileNavigation from '@/components/mobileNavigation';
 import Header from '@/components/header';
 import { getCurrentUser } from '@/lib/actions/users.action';
 import { redirect } from 'next/navigation';
