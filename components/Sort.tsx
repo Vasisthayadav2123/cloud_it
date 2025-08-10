@@ -10,6 +10,8 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { sortTypes } from "@/constants";
 
+
+
 const Sort = () => {
   const path = usePathname();
   const router = useRouter();
@@ -18,6 +20,8 @@ const Sort = () => {
     router.push(`${path}?sort=${value}`);
   };
 
+
+  
   return (
     <Select onValueChange={handleSort} defaultValue={sortTypes[0].value}>
       <SelectTrigger className="sort-select">

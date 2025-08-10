@@ -31,8 +31,8 @@ const SideBar = ({fullName , avatar , email}: Props) => {
         <Image
             src="/assets/icons/logo-full-brand.svg"
             alt="logo"
-            width={160}
-            height={50}
+            width={200}
+            height={5}
             className="hidden h-auto lg:block"
         />
         <Image
@@ -49,7 +49,7 @@ const SideBar = ({fullName , avatar , email}: Props) => {
             <Link key={name} href={url} className="lg:w-full">
               <li
                 className={cn(
-                  "sidebar-nav-item",
+                  "sidebar-nav-item ",
                   pathname === url && "shad-active",
                 )}
               >
@@ -59,11 +59,11 @@ const SideBar = ({fullName , avatar , email}: Props) => {
                   width={24}
                   height={24}
                   className={cn(
-                    "nav-icon",
+                    "nav-icon ",
                     pathname === url && "nav-icon-active",
                   )}
                 />
-                <p className="hidden lg:block">{name}</p>
+                <p className="hidden lg:block ">{name}</p>
               </li>
             </Link>
           ))}

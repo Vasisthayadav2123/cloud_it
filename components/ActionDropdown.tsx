@@ -88,7 +88,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
     const { value, label } = action;
 
     return (
-      <DialogContent className="shad-dialog button">
+      <DialogContent className="shad-dialog button bg-indigo-500">
         <DialogHeader className="flex flex-col gap-3">
           <DialogTitle className="text-center text-light-100">
             {label}
