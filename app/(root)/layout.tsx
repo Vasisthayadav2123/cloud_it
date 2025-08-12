@@ -11,14 +11,24 @@ const layout = async ({children} : {children : React.ReactNode }) => {
 
 
     const currentUser = await getCurrentUser();
+<<<<<<< HEAD
 
     // If no user is found, redirect to sign-in page
     // This is a server-side check to ensure the user is authenticated
     if(!currentUser) {redirect("/sign-in")}
+=======
+>>>>>>> a111a30834295acd4295d89184f1dae6fe37d38a
 
 
 
 
+
+
+
+
+
+
+    if(!currentUser) redirect("/sign-in"); 
 
     return <>
             <main className='flex h-screen'>

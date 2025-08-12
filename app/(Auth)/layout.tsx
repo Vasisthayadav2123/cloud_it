@@ -13,7 +13,7 @@ const Layout = ({children} : {children: React.ReactNode}) => {
                                 Cloud It is a secure cloud storage solution
                             </p>
                         </div>
-                        <Image src="/assets/images/files.png" alt='files' width={342} height={342} className='transition-all hover:scale-105'/>
+                        <Image src="/assets/images/files-2.png" alt='files' width={342} height={342} className='transition-all hover:scale-105'/>
                         </div>
                     </section>
 
