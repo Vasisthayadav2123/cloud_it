@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import FileUploader from "@/components/FileUploader";
+import FileUploader from '@/components/FileUploader';
 import { signOut } from "@/lib/actions/users.action";
 
 
