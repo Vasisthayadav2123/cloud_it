@@ -83,3 +83,4 @@ const SideBar = ({fullName , avatar , email}: Props) => {
 };
 
 export default SideBar;
+// This file is used to render the sidebar component in the application.
