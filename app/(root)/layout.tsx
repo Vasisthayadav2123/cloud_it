@@ -5,6 +5,8 @@ import Header from '@/components/header';
 import { getCurrentUser } from '@/lib/actions/users.action';
 import { redirect } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 const layout = async ({children} : {children : React.ReactNode }) => {
 
 
