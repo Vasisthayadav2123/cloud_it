@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { navItems } from '@/constants';
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
-import { Props } from 'next/script';
 
 
 // eslint-disable-next-line no-redeclare
