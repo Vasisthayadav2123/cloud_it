@@ -11,6 +11,9 @@ const layout = async ({children} : {children : React.ReactNode }) => {
 
 
     const currentUser = await getCurrentUser();
+
+    // If no user is found, redirect to sign-in page
+    // This is a server-side check to ensure the user is authenticated
     if(!currentUser) {redirect("/sign-in")}
 
 
