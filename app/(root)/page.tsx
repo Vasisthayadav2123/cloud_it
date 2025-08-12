@@ -21,7 +21,7 @@ const Dashboard = async () => {
   const usageSummary = getUsageSummary(totalSpace);
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container ">
       <section>
         <Chart used={totalSpace.used} />
 

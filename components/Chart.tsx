@@ -46,7 +46,7 @@ export const Chart = ({ used = 0 }: { used: number }) => {
               gridType="circle"
               radialLines={false}
               stroke="none"
-              className="polar-grid"
+              className="polar-grid "
               polarRadius={[86, 74]}
             />
             <RadialBar dataKey="storage" background cornerRadius={10} />
@@ -76,7 +76,7 @@ export const Chart = ({ used = 0 }: { used: number }) => {
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-white/70"
+                          className="fill-white"
                         >
                           Space used
                         </tspan>
