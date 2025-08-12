@@ -11,19 +11,10 @@ const layout = async ({children} : {children : React.ReactNode }) => {
 
 
     const currentUser = await getCurrentUser();
-<<<<<<< HEAD
 
-    // If no user is found, redirect to sign-in page
-    // This is a server-side check to ensure the user is authenticated
     if(!currentUser) {redirect("/sign-in")}
-=======
->>>>>>> a111a30834295acd4295d89184f1dae6fe37d38a
-
-
-
-
-
-
+    // If the user is not authenticated, redirect to the sign-in page
+    // This ensures that the user is always authenticated before accessing the main layout
 
 
 

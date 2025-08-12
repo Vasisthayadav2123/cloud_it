@@ -18,7 +18,7 @@ import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import FileUploader from '@/components/FileUploader';
-import { signOutUser } from "@/lib/actions/users.action";
+import { signOut } from "@/lib/actions/users.action";
 
 
 // eslint-disable-next-line no-redeclare
@@ -85,7 +85,7 @@ const MobileNavigation = ({ $id: ownerId , accountId ,fullname , email ,avatar} 
       <div className="flex flex-col justify-between gap-5">
         <FileUploader ownerId={ownerId} accountId={accountId} />
 
-        <button type='submit' className='mobile-sign-out-button' onClick = { async () => await signOutUser() } > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
+        <button type='submit' className='mobile-sign-out-button' onClick = { async () => await signOut() } > <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24}/><p>logout</p></button>
       </div>
   </SheetContent>
 </Sheet>

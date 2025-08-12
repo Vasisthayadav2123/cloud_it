@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Search from './Search';
 import FileUploader from '@/components/FileUploader';
-import { signOutUser  } from '@/lib/actions/users.action';
+import { signOut } from '@/lib/actions/users.action';
 
 
 
@@ -16,7 +16,7 @@ const Header = ({userId , accountId}: {userId: string , accountId:string}) => {
 
             <form action={async () => {
                 'use server';
-                await signOutUser();
+                await signOut();
             }}>
                 <button type='submit' className='sign-out-button'> <Image src="/assets/icons/logout.svg" alt="logo" width={24} height = {24} className="w-6" /></button>
             </form>
