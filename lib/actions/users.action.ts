@@ -12,7 +12,7 @@
 
     
 
-    const  getUserByEmail  =async(email:string) => {
+    const  getUserByEmail = async(email:string) => {
         const {databases} = await createAdminClient ();
 
         const result = await databases.listDocuments(
@@ -87,7 +87,8 @@
 
 
     export const getCurrentUser = async () => {
-  const client = await createSessionClient();
+        try {
+            const client = await createSessionClient();
 
   const result = await client.account.get();
 
@@ -103,6 +104,11 @@
     ...user.documents[0],
     $accountId: result.$id,
   });
+            
+        } catch (error) {
+            console.log(error);
+        }
+
 };
 
 
