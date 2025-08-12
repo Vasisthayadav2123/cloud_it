@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Search from './Search';
-import FileUpLoader from './FileUploader';
+import FileUploader from './FileUploader';
 import { signOut } from '@/lib/actions/users.action';
 
 
@@ -12,7 +12,7 @@ const Header = ({userId , accountId}: {userId: string , accountId:string}) => {
         <Search />
 
         <div className='header-wrapper'>
-            <FileUpLoader ownerId={userId} accountId={accountId} />
+            <FileUploader ownerId={userId} accountId={accountId} />
 
             <form action={async () => {
                 'use server';
