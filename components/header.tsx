@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Search from './Search';
-import FileUpLoader from './FileUploader';
+import FileUpLoader from './FileUpLoader';
 import { signOut } from '@/lib/actions/users.action';
 
 
