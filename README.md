@@ -73,7 +73,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Vasisthayadav2123/cloud_it
-cd cloud-it
+cd cloud_it
 ```
 
 **Installation**
@@ -109,7 +109,5 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-## <a name="links">🔗 Assets</a>
 
-- Assets used in the project can be found [here](https://jsm.dev/gdrive-kit)
 
